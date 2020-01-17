@@ -9,6 +9,8 @@ import Counter from './Day2/Counter';
 import Counter2 from './Day2/Counter2';
 import MyForm from './Day2/MyForm';
 import Counter3 from './Day2/Counter3';
+import ReducerSample from './Day2/ReducerSample';
+import MyForm2 from './Day3/MyForm2';
 
 const App: React.FC = function() {
   const onClick = (name: string) => {
@@ -37,6 +39,11 @@ const App: React.FC = function() {
         <Counter2 />
         <MyForm onSubmit={onSubmit}/>
         <Counter3 />
+        <ReducerSample />
+      </div>
+      <div className="App-div-day">
+        <h1>Day3</h1>
+        <MyForm2 onSubmit={onSubmit}/>
       </div>
     </div>
   );
