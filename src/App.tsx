@@ -11,6 +11,8 @@ import MyForm from './Day2/MyForm';
 import Counter3 from './Day2/Counter3';
 import ReducerSample from './Day2/ReducerSample';
 import MyForm2 from './Day3/MyForm2';
+import TodoForm from './Day4/TodoForm';
+import TodoList from './Day4/TodoList';
 
 const App: React.FC = function() {
   const onClick = (name: string) => {
@@ -23,7 +25,9 @@ const App: React.FC = function() {
 
   return (
     <div className="App-div-days">
+
       <h1>React Study</h1>
+
       <div className="App-div-day">
         <h1>Day 1</h1>
         <Greetings name = "1st" />
@@ -33,6 +37,7 @@ const App: React.FC = function() {
         <Greetings4 name = "4th" optional = "check" />
         <Greetings5 name = "5th" onClick = {onClick} />
       </div>
+
       <div className="App-div-day">
         <h1>Day2</h1>
         <Counter />
@@ -41,9 +46,16 @@ const App: React.FC = function() {
         <Counter3 />
         <ReducerSample />
       </div>
+
       <div className="App-div-day">
         <h1>Day3</h1>
         <MyForm2 onSubmit={onSubmit}/>
+      </div>
+
+      <div className="App-div-day">
+        <h1>Day4</h1>
+        <TodoForm/>
+        <TodoList/>
       </div>
     </div>
   );
