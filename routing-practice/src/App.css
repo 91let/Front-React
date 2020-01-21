@@ -1,0 +1,48 @@
+.Contents
+{
+    margin-top: 5vv;
+    margin-bottom: 5vv;
+}
+
+.Footer
+{
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    height: 5vh;
+}
+
+.Boxing
+{
+    float: left;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    width: 25vw;
+    height: 5vh;
+    background-color: blueviolet;
+    color: white;
+    transition: all 0.1s;
+    cursor: pointer;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.Boxing:hover
+{
+    color: blueviolet;
+    background: white;
+}
+  
+.Boxing svg
+{
+    display: inline;
+    fill: black;
+    height: 5vh;
+    width: 5vh;
+}
+  
+  /****  magic trick  *****/
+.Boxing svg path{
+    fill: currentcolor;
+}

@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap');
+
+.Title
+{
+    margin-top: 20vh;
+    text-align: center;
+    font-family: 'Zhi Mang Xing', cursive;;
+    font-size: 8vh;
+    letter-spacing: 5pt;
+    color: rebeccapurple;
+}

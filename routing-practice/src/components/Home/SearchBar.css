@@ -1,0 +1,11 @@
+.SearchBar
+{
+    border: blueviolet solid 1px;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    width: 76vw;
+    height: 5vh;
+    padding-left: 2vw;
+    font-size: 100%;
+    border-radius: 5vh 5vh;
+}
