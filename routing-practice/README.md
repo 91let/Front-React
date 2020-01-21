@@ -1,7 +1,7 @@
 # install
 
 ## Create Project
-## `yarn create react-app front-sk-react-typescript --template typescript`
+## `yarn create react-app routing-practice --template typescript`
 
 ## React Router For Typescript
 ## `yarn add @types/react-router-dom`
