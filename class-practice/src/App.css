@@ -1,0 +1,15 @@
+.TopMenu{
+    float: left;
+    width: 100vw;
+    height: 30px;
+    background-color: wheat;
+    color: black;
+    position: absolute;
+    top: 0;
+}
+
+.TopMenu div {
+    height: 100%;
+    width: 200px;
+    float: left;
+}
