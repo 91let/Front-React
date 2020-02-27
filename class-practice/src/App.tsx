@@ -1,19 +1,12 @@
 import React from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import MyRouter from './common/router';
-import { HashRouter as Router, Link } from 'react-router-dom';
-import './App.css'
+import Menu from './components/Menu';
 
 function App() {
   return (
     <Router>
-      <div className="TopMenu">
-        <div>
-          <Link to="/">Home</Link>
-        </div>
-        <div>
-          <Link to="/Lists">Go Lists</Link>
-        </div>
-      </div>
+      <Menu />
       <MyRouter />
     </Router>
   );
