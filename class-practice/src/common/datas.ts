@@ -1,10 +1,10 @@
-interface DataProps{
+export interface DataProps{
     img : string,
     name : string,
     checking : boolean
 }
 
-class Datas {
+export class Datas {
 
     private datas : DataProps[] = [];
 
