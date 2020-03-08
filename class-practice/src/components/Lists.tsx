@@ -2,11 +2,14 @@ import React from "react";
 import {Datas, DataProps} from '../common/datas';
 import './Lists.css';
 
-class Lists extends React.Component<DataProps[], DataProps>{
+class Lists extends React.Component<[], DataProps>{
     datas : Datas;
-    constructor(props : DataProps[]){
+    constructor(props : []){
         super(props);
         this.datas = new Datas;
+        this.stateInit();
+    }
+    stateInit(){
         this.state = {
             img : "",
             name : "",
@@ -34,6 +37,10 @@ class Lists extends React.Component<DataProps[], DataProps>{
     NameChange = (e: {target: { value: React.SetStateAction<string> }}) => {
         this.setState({name : e.target.value.toString()});
     };
+    AddList = () => {
+        this.datas.addDatas(this.state);
+        this.stateInit();
+    }
     render(){
         return(
             <>
@@ -44,7 +51,7 @@ class Lists extends React.Component<DataProps[], DataProps>{
                     {this.datas.getDatas().map(
                         data =>
                             <tr>
-                                <td>{data.img}</td>
+                                <td><img className = "ListsDataImg" src = {data.img}/></td>
                                 <td>{data.name}</td>
                                 {/* <td>{data.checking}</td> */}
                             </tr>
@@ -57,8 +64,9 @@ class Lists extends React.Component<DataProps[], DataProps>{
                         <td>
                             <img className = "ListsDataImg" src = {this.state.img}/>
                             <input className = "ListsInputImg" type="file" onChange={this.ImgChange}/>
-                            </td>
+                        </td>
                         <td><input type="text" value={this.state.name} onChange={this.NameChange}/></td>
+                        <td><button onClick={this.AddList}>등록</button></td>
                     </tr>
                 </table>
             </>
