@@ -2,23 +2,44 @@ import React from "react";
 import {Datas, DataProps} from '../common/datas';
 import './Lists.css';
 
-class Lists extends React.Component<[], DataProps>{
+class Lists extends React.Component<[], {Datas : DataProps[], insertData : DataProps}>{
     datas : Datas;
     constructor(props : []){
         super(props);
         this.datas = new Datas;
-        this.stateInit();
     }
     stateInit(){
-        this.state = {
-            img : "",
-            name : "",
-            checking : false,
-        }
+        this.setState({
+            Datas : this.datas.getDatas(),
+            insertData : {
+                img : "",
+                name : "",
+                checking : false,
+            }
+        })
+    }
+    setImg(img : string){
+        this.setState({
+            Datas : this.state.Datas,
+            insertData : {
+                img : img,
+                name : this.state.insertData.name,
+                checking : false,
+            }
+        })
+    }
+    setName(name : string){
+        this.setState({
+            Datas : this.state.Datas,
+            insertData : {
+                img : this.state.insertData.img,
+                name : name,
+                checking : false,
+            }
+        })
     }
     componentWillMount(){
-        this.datas.initDatas();
-        this.datas.fakeDatas();
+        this.stateInit();
     }
     ImgChange = (event : any) => {
         event.preventDefault();
@@ -30,15 +51,15 @@ class Lists extends React.Component<[], DataProps>{
         reader.onloadend = () => {
         const base64 = reader.result;
             if (base64) {
-                this.setState({img : base64.toString()});
+                this.setImg(base64.toString());
             }
         };
     }
     NameChange = (e: {target: { value: React.SetStateAction<string> }}) => {
-        this.setState({name : e.target.value.toString()});
+        this.setName(e.target.value.toString());
     };
     AddList = () => {
-        this.datas.addDatas(this.state);
+        this.datas.addDatas(this.state.insertData);
         this.stateInit();
     }
     render(){
@@ -48,12 +69,11 @@ class Lists extends React.Component<[], DataProps>{
                     <tr>
                         <td>Showing datas</td>
                     </tr>
-                    {this.datas.getDatas().map(
+                    {this.state.Datas.map(
                         data =>
                             <tr>
-                                <td><img className = "ListsDataImg" src = {data.img}/></td>
+                                <td><img className = "ListsDataImg" src = {data.img !== "" ? data.img : "/logo512.png"}/></td>
                                 <td>{data.name}</td>
-                                {/* <td>{data.checking}</td> */}
                             </tr>
                         )
                     }
@@ -62,10 +82,10 @@ class Lists extends React.Component<[], DataProps>{
                     </tr>
                     <tr>
                         <td>
-                            <img className = "ListsDataImg" src = {this.state.img}/>
+                            <img className = "ListsDataImg" src = {this.state.insertData.img !== "" ? this.state.insertData.img : "/logo512.png"}/>
                             <input className = "ListsInputImg" type="file" onChange={this.ImgChange}/>
                         </td>
-                        <td><input type="text" value={this.state.name} onChange={this.NameChange}/></td>
+                        <td><input type="text" value={this.state.insertData.name} onChange={this.NameChange}/></td>
                         <td><button onClick={this.AddList}>등록</button></td>
                     </tr>
                 </table>
