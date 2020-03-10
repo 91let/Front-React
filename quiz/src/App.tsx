@@ -13,15 +13,15 @@ function App() {
   const config = {
     headers: { 
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-     },
+      ContentType: 'application/json',
+     }
   }
 
   const send = () => {
     axios
       .post(restUrl + url, {
-          "nickname" : nickname,
-          "yourAnswer" : yourAnswer
+          nickname : nickname,
+          yourAnswer : yourAnswer
         },
         config
       )
