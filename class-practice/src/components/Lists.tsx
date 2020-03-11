@@ -74,6 +74,7 @@ class Lists extends React.Component<[], {Datas : DataProps[], insertData : DataP
                             <tr>
                                 <td><img className = "ListsDataImg" src = {data.img !== "" ? data.img : "/logo512.png"}/></td>
                                 <td>{data.name}</td>
+                                <td><input type="checkbox" value={data.name} onChange={() => data.checking = !data.checking}/></td>
                             </tr>
                         )
                     }
