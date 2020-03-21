@@ -38,6 +38,19 @@ class Lists extends React.Component<[], {Datas : DataProps[], insertData : DataP
             }
         })
     }
+    setCheck(name : string){
+        const tmp : DataProps[] = [];
+        this.state.Datas.map(
+            data => {
+                if(data.name === name) tmp.push({name : data.name, img : data.img, checking : !data.checking})
+                else tmp.push(data)
+            }
+        )
+        this.setState({
+            Datas : tmp,
+            insertData : this.state.insertData
+        })
+    }
     componentWillMount(){
         this.stateInit();
     }
@@ -74,6 +87,7 @@ class Lists extends React.Component<[], {Datas : DataProps[], insertData : DataP
                             <tr>
                                 <td><img className = "ListsDataImg" src = {data.img !== "" ? data.img : "/logo512.png"}/></td>
                                 <td>{data.name}</td>
+                                <td><input type="checkbox" onChange={() => this.setCheck(data.name)}/></td>
                             </tr>
                         )
                     }
